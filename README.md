@@ -82,10 +82,11 @@ And it looks like this after 8 turns:
 
 Again, this is an invalid state, because only 7 turns are allowed.
 
-In main.py, I've laid out the functions `board_to_string` and `compass_to_string`.
+In my [first commit](https://github.com/dankuck/dan-learns-python/commit/b70678701aa3ccab74792be325fa41d0a3e110d1), in main.py, I've laid out the functions `board_to_string` and
+`compass_to_string`.
 
 The board is represented by an array of 5 arrays of 5 strings. In a board, an empty space is `' '`,
-a dandelion is `'*'` and a seed is `'.'`.
+a dandelion is `'*'`, and a seed is `'.'`.
 
 The compass is represented by a dictionary of abbreviated cardinal directions as the keys and
 booleans as the values. A compass starts out with all values `False`, and as turns are taken, values
@@ -94,4 +95,4 @@ change to `True`.
 Right now I'm unhappy with how complicated `board_to_string` looks. But it works fine, so I'll
 probably leave it for a while.
 
-My first commit!
+I printed test boards and compasses and got the results above. Now we're cooking!
