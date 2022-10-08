@@ -1,4 +1,4 @@
-### Dandelions
+# Dandelions
 
 ## Background
 
@@ -24,7 +24,7 @@ even one space is empty, the Wind wins.
 
 To help me learn Python, I'm programming an automatic version of this game.
 
-# Step 1
+### Step 1
 
 The first step is to represent the data. And while I'm at it I should make functions to visualize
 the data.
