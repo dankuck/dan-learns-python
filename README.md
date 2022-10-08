@@ -82,7 +82,8 @@ And it looks like this after 8 turns:
 
 Again, this is an invalid state, because only 7 turns are allowed.
 
-In my [first commit](https://github.com/dankuck/dan-learns-python/commit/b70678701aa3ccab74792be325fa41d0a3e110d1), in main.py, I've laid out the functions `board_to_string` and
+In my [first commit](https://github.com/dankuck/dan-learns-python/commit/b70678701aa3ccab74792be325fa41d0a3e110d1),
+in main.py, I've laid out the functions `board_to_string` and
 `compass_to_string`.
 
 The board is represented by an array of 5 arrays of 5 strings. In a board, an empty space is `' '`,
@@ -96,3 +97,21 @@ Right now I'm unhappy with how complicated `board_to_string` looks. But it works
 probably leave it for a while.
 
 I printed test boards and compasses and got the results above. Now we're cooking!
+
+#### What did I learn in Step 1?
+
+I got a lot of error messages reminding me to put a `:` after `def`, `if`, and `else` statements.
+
+I also learned that the `join` method is found on a string and accepts an array parameter.
+
+Dictionaries look like they do in many other languages and trailing commas are not a problem.
+
+`True` and `False` are written in that casing.
+
+Python doesn't have the usual ternary expressions. If it has anything like that, I still need to
+find it.
+
+Closures are called lambdas and use the `lambda` keyword.
+
+`map` is a freestanding function.
+
