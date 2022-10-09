@@ -131,3 +131,44 @@ Modules are as easy as just putting your functions into a file and using:
 `from filename import function_name, other_function_name`
 
 I've heard there's another way too, but the easy way works for now.
+
+### Step 3
+
+Now seems like a good time to build some automated tests.
+
+In my [third commit](https://github.com/dankuck/dan-learns-python/commit/e377d438b18fa4976a56261b6ba39e4aca4a1d54), I create `test.py`, a script that runs all the exercises in `main.py` and also
+asserts that the results are equal to some expected values.
+
+After some back and forth that had more to do with learning how to manipulate strings than with the
+code under test, I got four tests passing.
+
+I don't use a framework for the tests, not yet anyway. I just include some test functions and run
+them, being sure to count how many pass. I use Python's `assert` which throws exceptions, so
+the first test that fails stops execution.
+
+#### What did I learn in Step 3?
+
+Python's multiline string literals start and end with triple quotes. Any indentation between those
+is preserved, making it uncomfortable to use multiline string literals inside of functions or
+blocks.
+
+Python's standard library provides a solution to this in a module called `textwrap` with a function
+called `dedent`.
+
+`dedent` didn't help me writing tests because indents weren't the only whitespace I needed to get
+exactly right when doing comparisons in my tests. But now I know it's there.
+
+Python has an `assert` function which is like the one from C and Java: it can be used anywhere and
+it's usually turned off in production. This represents a sort of "mix your tests with your code"
+philosophy that we can just... not do.
+
+For the simple tests I wrote, the `assert` function worked fine. Of course, it doesn't explain why
+assertions fail in detail.
+
+The substring features built into Python's strings are really enjoyable. When `string == expected`
+started to fail assertions, it was easy to change them to `string[0] == expected[0]` which passed
+and then `string[0:15] == expected[0:15]` which failed, and then binary search my way to the
+problem character. (It was a whitespace character at index 11 from when I was still trying to use
+multiline strings.)
+
+The function for the length of a string or array is `len`.
