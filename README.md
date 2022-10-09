@@ -11,7 +11,7 @@ Then they draw a 5&times;5 grid and a compass with eight cardinal directions.
 
 They take seven turns. On a turn, first the Dandelion player places one dandelion on the grid,
 then the Wind player chooses a direction to blow the wind. When the wind blows, the players draw
-seeds in each space from the dandelion to the border in the direction it blew.
+seeds in each space from all the dandelions to the border in the direction it blew.
 
 On each turn, the Dandelion player places a new dandelion and the Wind player blows in a new
 direction. The Wind cannot blow in the same direction twice, but new Dandelions can grow where seeds
@@ -104,7 +104,8 @@ I got a lot of error messages reminding me to put a `:` after `def`, `if`, and `
 
 I also learned that the `join` method is found on a string and accepts an array parameter.
 
-Dictionaries look like they do in many other languages and trailing commas are not a problem.
+Dictionary and array literals look like they do in many other languages and trailing commas are not
+a problem.
 
 `True` and `False` are written in that casing.
 
@@ -115,3 +116,18 @@ Closures are called lambdas and use the `lambda` keyword.
 
 `map` is a freestanding function.
 
+### Step 2
+
+It's never too early to get organized, so in my [second commit](https://github.com/dankuck/dan-learns-python/commit/42000deb5bfaf76817e7d22614eada67e33332f1),
+I move the functions into a module called `to_string`, then add the import statements in my main
+script.
+
+I ran main.py again and got the same results.
+
+#### What did I learn in Step 2?
+
+Modules are as easy as just putting your functions into a file and using:
+
+`from filename import function_name, other_function_name`
+
+I've heard there's another way too, but the easy way works for now.
