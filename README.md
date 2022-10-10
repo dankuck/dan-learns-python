@@ -86,7 +86,7 @@ In my [first commit](https://github.com/dankuck/dan-learns-python/commit/b706787
 in main.py, I've laid out the functions `board_to_string` and
 `compass_to_string`.
 
-The board is represented by an array of 5 arrays of 5 strings. In a board, an empty space is `' '`,
+The board is represented by a list of 5 lists of 5 strings. In a board, an empty space is `' '`,
 a dandelion is `'*'`, and a seed is `'.'`.
 
 The compass is represented by a dictionary of abbreviated cardinal directions as the keys and
@@ -102,9 +102,9 @@ I printed test boards and compasses and got the results above. Now we're cooking
 
 I got a lot of error messages reminding me to put a `:` after `def`, `if`, and `else` statements.
 
-I also learned that the `join` method is found on a string and accepts an array parameter.
+I also learned that the `join` method is found on a string and accepts a list parameter.
 
-Dictionary and array literals look like they do in many other languages and trailing commas are not
+Dictionary and list literals look like they do in many other languages and trailing commas are not
 a problem.
 
 `True` and `False` are written in that casing.
@@ -171,7 +171,7 @@ and then `string[0:15] == expected[0:15]` which failed, and then binary search m
 problem character. (It was a whitespace character at index 11 from when I was still trying to use
 multiline strings.)
 
-The function that gives the length of a string or array is `len`.
+The function that gives the length of a string or list is `len`.
 
 ### Step 4
 
@@ -229,7 +229,7 @@ board state would become:
 
 In my [fourth commit](https://github.com/dankuck/dan-learns-python/commit/62e9ef81569593747454b6efd2d4c38bcdae024e),
 I created a new module called `wind` with a method called `blow` which takes a board and direction
-as parameters and then fills in seeds at the right locations in the board arrays.
+as parameters and then fills in seeds at the right locations in the board lists.
 
 My first solution had problems if a dandelion was placed at the border. And it overwrote dandelions
 with seeds if they happened to be in the way of some other dandelion. Once I worked out those
@@ -271,7 +271,7 @@ closing them on a later line; as part of a multiline string.
 
 ### Step 6
 
-I really prefer that each action on the game board would produce a new instance of the board array.
+I really prefer that each action on the game board would produce a new instance of the board list.
 That way I could choose to keep a list of states that led to each other.
 
 In my [sixth commit](https://github.com/dankuck/dan-learns-python/commit/206ced08e65719993292029d49ff490b28db6262),
