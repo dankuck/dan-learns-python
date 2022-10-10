@@ -248,3 +248,23 @@ of a list while you loop, you must first convert the list to a dictionary using 
 `if` and `else` are easy, but you have to remember `elif`.
 
 `or` is spelled like that.
+
+### Step 5
+
+Brandon Shar showed me how to do ternary expressions so I thought I might as well try it in
+`compass_to_string`.
+
+I did it in my [fifth commit](https://github.com/dankuck/dan-learns-python/commit/0bb95fe7dec628f87a6ca8d122c9bd50142a4043),
+but I can't tell if it's any easier to look at.
+
+While I was at it, I refactored `board_to_string` and it looks a little better. I took away what
+turned out to be a spurious use of `list()` and split parts of the work onto different lines.
+
+#### What did I learn in Step 5?
+
+The ternary expression, the one which yields one value under a true condition and another value
+under a false condition, looks like `<true value> if <test expression> else <false value>`.
+
+Because Python has no end-of-statement character, there are just a few ways to spread a statement
+onto multiple lines: putting `\\` at the end of a line; opening parentheses on one line and only
+closing them on a later line; as part of a multiline string.
