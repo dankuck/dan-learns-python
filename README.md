@@ -210,7 +210,7 @@ like this:
  - - - - -
 ```
 
-If the first player places a dandelion just below the first and then the wind blew to the west, the
+If the first player places a dandelion just below the first and then the wind blows to the west, the
 board state would become:
 
 ```
@@ -287,3 +287,40 @@ Apropos of nothing, there are 97,684,392,960,000 different paths the game could 
 
 Lists have their own `copy` method but it makes a shallow copy and I needed a deep copy. The `copy`
 library has `deepcopy`.
+
+### Step 7
+
+I started writing strategy classes, which will generate the moves to play the game, but I stopped
+when I realized they need something.
+
+In a way, strategy classes run "on top" of this
+Dandelions engine. So the engine needs to respond to mistakes. It also needs to handle as
+much boiler plate as it can.
+
+With that in mind, I created `plant` in a new module `dandelions` in my [seventh commit](https://github.com/dankuck/dan-learns-python/commit/a6cb6496d9823f8448fd762c90ea164928928267).
+`plant` places a dandelion onto the board, but throws an exception if (a) a dandelion is already
+there or (b) the location is outside the board. These are all the illegal moves the Dandelion player
+can make.
+
+#### What did I learn in Step 7?
+
+Python has a second array-like structure called a "tuple", which is immutable. Soon, dandelion
+strategy classes will return a tuple with `x`, `y` coordinates because that just seems like the
+right data structure in Python.
+
+Tuples and lists can be "unpacked". Example: `x, y = move`.
+
+In Python we "raise" exceptions using `raise` and provide an instance of an exception class.
+
+Classes are instantiated by simply calling them like functions. Example:
+`raise RuntimeError('BAD')`.
+
+When you catch an exception (using `except`), you don't even have to give it a name if you're not
+going to inspect it at all.
+
+Python throws an exception on its own if you attempt to assign to an index beyond the end of a list.
+You have to use `append` for that. But if you attempt to assign to a negative index, Python's magic
+interprets that as the end of the list - n.
+
+At first, I left it to Python to raise that exception, but then I remembered that there is
+unnecessary work we can avoid if the function checks for those values early.
