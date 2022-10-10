@@ -266,5 +266,24 @@ The ternary expression, the one which yields one value under a true condition an
 under a false condition, looks like `<true value> if <test expression> else <false value>`.
 
 Because Python has no end-of-statement character, there are just a few ways to spread a statement
-onto multiple lines: putting `\\` at the end of a line; opening parentheses on one line and only
+onto multiple lines: putting `\` at the end of a line; opening parentheses on one line and only
 closing them on a later line; as part of a multiline string.
+
+### Step 6
+
+I really prefer that each action on the game board would produce a new instance of the board array.
+That way I could choose to keep a list of states that led to each other.
+
+In my [sixth commit](https://github.com/dankuck/dan-learns-python/commit/206ced08e65719993292029d49ff490b28db6262),
+I use the standard library's `deepcopy` function from the `copy` module to copy the board passed
+into `blow` before making any changes.
+
+I'm a bit troubled that I'll have to remember to use `deepcopy` again later. The other time a board
+can be altered is when a dandelion is placed. Maybe I'll find a better place for it.
+
+#### What did I learn in Step 6?
+
+Apropos of nothing, there are 97,684,392,960,000 different paths the game could take.
+
+Lists have their own `copy` method but it makes a shallow copy and I needed a deep copy. The `copy`
+library has `deepcopy`.
