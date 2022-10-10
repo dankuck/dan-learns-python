@@ -1,43 +1,26 @@
 
 def board_to_string(board):
     line = ' - - - - - '
-    return line + "\n" + ("\n" + line + "\n").join(list(map(lambda row: '|' + (' '.join(row)) + '|', board))) + "\n" + line
+    row_strings = map(
+        lambda row: '|' + (' '.join(row)) + '|',
+        board
+    )
+    out = line + "\n"
+    out += ("\n" + line + "\n").join(row_strings)
+    out += "\n" + line
+    return out
 
 def compass_to_string(compass):
     out = ''
-    if (compass['nw']):
-        out += '\\'
-    else:
-        out += ' '
-    if (compass['no']):
-        out += '|'
-    else:
-        out += ' '
-    if (compass['ne']):
-        out += '/'
-    else:
-        out += ' '
+    out += '\\' if compass['nw'] else ' '
+    out += '|' if compass['no'] else ' '
+    out += '/' if compass['ne'] else ' '
     out += "\n"
-    if (compass['we']):
-        out += '-'
-    else:
-        out += ' '
+    out += '-' if compass['we'] else ' '
     out += '+'
-    if (compass['ea']):
-        out += '-'
-    else:
-        out += ' '
+    out += '-' if compass['ea'] else ' '
     out += "\n"
-    if (compass['sw']):
-        out += '/'
-    else:
-        out += ' '
-    if (compass['so']):
-        out += '|'
-    else:
-        out += ' '
-    if (compass['se']):
-        out += '\\'
-    else:
-        out += ' '
+    out += '/' if compass['sw'] else ' '
+    out += '|' if compass['so'] else ' '
+    out += '\\' if compass['se'] else ' '
     return out
