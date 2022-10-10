@@ -171,4 +171,80 @@ and then `string[0:15] == expected[0:15]` which failed, and then binary search m
 problem character. (It was a whitespace character at index 11 from when I was still trying to use
 multiline strings.)
 
-The function for the length of a string or array is `len`.
+The function that gives the length of a string or array is `len`.
+
+### Step 4
+
+It's time to take some action. During the game, the wind will blow seeds from dandelions.
+
+Say a player has set down a dandelion in the center of the board:
+
+```
+ - - - - -
+|         |
+ - - - - -
+|         |
+ - - - - -
+|    *    |
+ - - - - -
+|         |
+ - - - - -
+|         |
+ - - - - -
+```
+
+Next suppose the other player blows the wind to the north-east. That would result in a board state
+like this:
+
+```
+ - - - - -
+|        .|
+ - - - - -
+|      .  |
+ - - - - -
+|    *    |
+ - - - - -
+|         |
+ - - - - -
+|         |
+ - - - - -
+```
+
+If the first player places a dandelion just below the first and then the wind blew to the west, the
+board state would become:
+
+```
+ - - - - -
+|        .|
+ - - - - -
+|      .  |
+ - - - - -
+|. . *    |
+ - - - - -
+|. . *    |
+ - - - - -
+|         |
+ - - - - -
+```
+
+In my [fourth commit](https://github.com/dankuck/dan-learns-python/commit/62e9ef81569593747454b6efd2d4c38bcdae024e),
+I created a new module called `wind` with a method called `blow` which takes a board and direction
+as parameters and then fills in seeds at the right locations in the board arrays.
+
+My first solution had problems if a dandelion was placed at the border. And it overwrote dandelions
+with seeds if they happened to be in the way of some other dandelion. Once I worked out those
+problems it worked perfectly.
+
+I used recursion to extend the seeds all the way to the border, and it worked without any surprises.
+
+#### What did I learn in Step 4?
+
+You can compare lists with `==`. Even deeply, because comparing lists involves comparing their
+elements and if their elements are lists, `==` still works.
+
+The `for` loop only has one form, the one that iterates over iterables. Plus if you want the index
+of a list while you loop, you must first convert the list to a dictionary using `enumerate`.
+
+`if` and `else` are easy, but you have to remember `elif`.
+
+`or` is spelled like that.
