@@ -1,5 +1,6 @@
 from to_string import board_to_string, compass_to_string
 from wind import blow
+from dandelion import plant
 
 print('TESTS')
 
@@ -225,7 +226,7 @@ def it_blows_seeds_northwest():
     ]
     assert(after == expected);
 
-def it_works_correctly_at_the_borders():
+def blow_works_correctly_at_the_borders():
     '''
     The first way this was written, it would check if we were at a border and stop without
     considering that maybe we were not headed in the direction of that border. This now passes
@@ -299,7 +300,7 @@ def it_works_correctly_at_the_borders():
     ]
     assert(after == expected)
 
-def it_works_with_multiple_dandelions():
+def blow_works_with_multiple_dandelions():
     board = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -317,7 +318,7 @@ def it_works_with_multiple_dandelions():
     ]
     assert(after == expected)
 
-def it_doesnt_destroy_other_dandelions_with_new_seeds():
+def blow_doesnt_destroy_other_dandelions_with_new_seeds():
     board = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -347,6 +348,75 @@ def blow_returns_a_new_board():
     after[0][0] = '*' # mess with the new board but not the old one
     assert(board != after)
 
+def plant_plants_a_dandelion():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    move = 0, 0
+    after = plant(board, move)
+    expected = [
+        ['*', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    assert(after == expected)
+
+def plant_cannot_plant_where_a_dandelion_already_exists():
+    board = [
+        ['*', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    move = 0, 0
+    try:
+        plant(board, move)
+    except (BaseException):
+        return; # good job, you noticed that there's already a dandelion there
+    assert(False); # bad job
+
+def plant_cannot_plant_outside_the_boundary():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    bad_moves = [
+        (-1, 2),
+        (2, -1),
+        (5, 2),
+        (2, 5),
+    ]
+    errors = []
+    for move in bad_moves:
+        try:
+            plant(board, move)
+        except BaseException as e:
+            errors.append(move)
+    assert(len(errors) == len(bad_moves))
+
+def plant_returns_a_new_board():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    move = 0, 0
+    after = plant(board, move)
+    assert(board != after)
+
+
 tested = [
     it_prints_a_blank_board(),
     it_prints_a_full_board(),
@@ -360,11 +430,14 @@ tested = [
     it_blows_seeds_southeast(),
     it_blows_seeds_southwest(),
     it_blows_seeds_northwest(),
-    it_works_correctly_at_the_borders(),
-    it_works_with_multiple_dandelions(),
-    it_doesnt_destroy_other_dandelions_with_new_seeds(),
+    blow_works_correctly_at_the_borders(),
+    blow_works_with_multiple_dandelions(),
+    blow_doesnt_destroy_other_dandelions_with_new_seeds(),
     blow_returns_a_new_board(),
+    plant_plants_a_dandelion(),
+    plant_cannot_plant_where_a_dandelion_already_exists(),
+    plant_returns_a_new_board(),
+    plant_cannot_plant_outside_the_boundary(),
 ]
 
 print('Tested:', len(tested))
-

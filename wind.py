@@ -1,7 +1,7 @@
 from copy import deepcopy
 
 def blow(board, direction):
-    board = deepcopy(board);
+    board = deepcopy(board)
     for ri, row in enumerate(board):
         for ci, cell in enumerate(row):
             if (cell == '*'):
