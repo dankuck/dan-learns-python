@@ -297,7 +297,7 @@ In a way, strategy classes run "on top" of this
 Dandelions engine. So the engine needs to respond to mistakes. It also needs to handle as
 much boiler plate as it can.
 
-With that in mind, I created `plant` in a new module `dandelions` in my [seventh commit](https://github.com/dankuck/dan-learns-python/commit/a6cb6496d9823f8448fd762c90ea164928928267).
+With that in mind, I created `plant` in a new module `dandelion` in my [seventh commit](https://github.com/dankuck/dan-learns-python/commit/a6cb6496d9823f8448fd762c90ea164928928267).
 `plant` places a dandelion onto the board, but throws an exception if (a) a dandelion is already
 there or (b) the location is outside the board. These are all the illegal moves the Dandelion player
 can make.
@@ -322,5 +322,6 @@ Python throws an exception on its own if you attempt to assign to an index beyon
 You have to use `append` for that. But if you attempt to assign to a negative index, Python's magic
 interprets that as the end of the list - n.
 
-At first, I left it to Python to raise that exception, but then I remembered that there is
-unnecessary work we can avoid if the function checks for those values early.
+At first, I left it to Python to raise an exception when the x or y coordinates were too large, but
+then I remembered that there is unnecessary work we can avoid if the function checks for those
+values early.
