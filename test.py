@@ -335,7 +335,17 @@ def it_doesnt_destroy_other_dandelions_with_new_seeds():
     ]
     assert(after == expected)
 
-# blow_returns_a_new_board
+def blow_returns_a_new_board():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', '*', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    after = blow(board, 'no')
+    after[0][0] = '*' # mess with the new board but not the old one
+    assert(board != after)
 
 tested = [
     it_prints_a_blank_board(),
@@ -353,6 +363,7 @@ tested = [
     it_works_correctly_at_the_borders(),
     it_works_with_multiple_dandelions(),
     it_doesnt_destroy_other_dandelions_with_new_seeds(),
+    blow_returns_a_new_board(),
 ]
 
 print('Tested:', len(tested))
