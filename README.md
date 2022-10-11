@@ -325,3 +325,27 @@ interprets that as the end of the list - n.
 At first, I left it to Python to raise an exception when the x or y coordinates were too large, but
 then I remembered that there is unnecessary work we can avoid if the function checks for those
 values early.
+
+### Step 8
+
+Now we're ready to create some strategy code. A strategy acts as a player, making decisions about
+whatever role it is playing in the game.
+
+In my [eighth commit](https://github.com/dankuck/dan-learns-python/commit/b58b6b624abaca801f064fe17deb6fa55ea1c000), I created `FixedStrategy` in the `dandelion` module. It has a method called `generateMove`, which
+all strategies should have. A `generateMove` method must accept parameters `board` and
+`compass` and, for a Dandelion strategy, it must return an `x, y` tuple.
+
+For simplicity this one has 7 `x, y` tuples that it returns in order.
+
+#### What did I learn in Step 8?
+
+The constructor for a class is called `__init__`.
+
+By convention the first parameter to a method is called `self` because it represents an instance of
+the class. This parameter can be named anything, but IDEs give special highlighting for `self`.
+
+A function will throw an exception if too many positional parameters are passed in. I haven't tried
+it with named parameters yet.
+
+When importing you can change an identifier using the `as` keyword. Example:
+`from dandelion import FixedStrategy as DandelionFixedStrategy`
