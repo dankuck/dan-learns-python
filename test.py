@@ -1,5 +1,5 @@
 from to_string import board_to_string, compass_to_string
-from wind import blow
+from wind import blow, FixedStrategy as WindFixedStrategy
 from dandelion import plant, FixedStrategy as DandelionFixedStrategy
 
 print('TESTS')
@@ -416,7 +416,7 @@ def plant_returns_a_new_board():
     after = plant(board, move)
     assert(board != after)
 
-def fixed_strategy_gives_seven_different_moves():
+def fixed_dandelion_strategy_gives_seven_different_moves():
     board = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -457,6 +457,54 @@ def fixed_strategy_gives_seven_different_moves():
     move = strategy.generateMove(board, compass)
     board = plant(board, move)
 
+def fixed_wind_strategy_gives_seven_different_moves():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    strategy = WindFixedStrategy()
+    # 1
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 2
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 3
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 4
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 5
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 6
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+    # 7
+    move = strategy.generateMove(board, compass)
+    assert(not compass[move])
+    compass[move] = True
+
 
 tested = [
     it_prints_a_blank_board(),
@@ -479,7 +527,8 @@ tested = [
     plant_cannot_plant_where_a_dandelion_already_exists(),
     plant_returns_a_new_board(),
     plant_cannot_plant_outside_the_boundary(),
-    fixed_strategy_gives_seven_different_moves(),
+    fixed_dandelion_strategy_gives_seven_different_moves(),
+    fixed_wind_strategy_gives_seven_different_moves(),
 ]
 
 print('Tested:', len(tested))

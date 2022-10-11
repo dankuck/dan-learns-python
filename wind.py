@@ -28,3 +28,24 @@ def blow_cell(board, ri, ci, direction):
     if (board[ri][ci] == ' '):
         board[ri][ci] = '.'
     blow_cell(board, ri, ci, direction)
+
+class FixedStrategy:
+    """
+    This dummy strategy yields some arbitrarily chosen directions
+    in which the wind can be blown.
+    """
+    def __init__(self):
+        self.i = 0
+        self.directions = [
+            'no',
+            'se',
+            'nw',
+            'ea',
+            'ne',
+            'sw',
+            'so',
+        ]
+
+    def generateMove(self, board, compass):
+        self.i += 1
+        return self.directions[self.i - 1]
