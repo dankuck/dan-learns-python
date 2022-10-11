@@ -349,3 +349,11 @@ it with named parameters yet.
 
 When importing you can change an identifier using the `as` keyword. Example:
 `from dandelion import FixedStrategy as DandelionFixedStrategy`
+
+### Step 9
+
+In my [ninth commit](https://github.com/dankuck/dan-learns-python/commit/af5ad7b51700e3f32f22e6b22b58700a89518d7d) I did something very similar, but for wind.
+
+#### What did I learn in Step 9?
+
+The negation operator in Python is `not`.
