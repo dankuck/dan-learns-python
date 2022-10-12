@@ -1,6 +1,7 @@
 from to_string import board_to_string, compass_to_string
 from wind import blow, FixedStrategy as WindFixedStrategy
 from dandelion import plant, FixedStrategy as DandelionFixedStrategy
+from game import Game
 
 print('TESTS')
 
@@ -704,6 +705,14 @@ def blow_rejects_used_directions():
         return # good, we expected an exception
     assert(False)
 
+def it_plays_a_game():
+    dandelion = DandelionFixedStrategy()
+    wind = WindFixedStrategy()
+    game = Game(dandelion, wind)
+    winner = game.play()
+    assert(winner in {dandelion, wind})
+
+
 tested = [
     it_prints_a_blank_board(),
     it_prints_a_full_board(),
@@ -729,6 +738,7 @@ tested = [
     fixed_wind_strategy_gives_seven_different_moves(),
     blow_rejects_bad_directions(),
     blow_rejects_used_directions(),
+    it_plays_a_game(),
 ]
 
 print('Tested:', len(tested))
