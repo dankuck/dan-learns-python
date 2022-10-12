@@ -385,3 +385,16 @@ When I had written tests that expected to unpack the results of `wind` but hadn'
 `wind` to return packed results, Python attempted to unpack the board list that `wind` was already
 coded to return. Board lists have 5 elements but I wrote the new code to unpack only 2 unpacking
 values. In cases like this Python raises an exception about receiving too many values.
+
+### Step 12
+
+We have all the elements of a game. Let's make one!
+
+In my [twelfth commit](https://github.com/dankuck/dan-learns-python/commit/0b6404a99b2aa109ce3a8fb1957a8e8ee9addc0d),
+it became a game. The new Game class accepts two strategy instances and runs a game, returning the
+winning strategy.
+
+#### What did I learn in Step 12?
+
+To loop a specific number of times with Python's `for` loops, you can use a `range` call to get a
+list with the number of elements you want.
