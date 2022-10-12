@@ -398,3 +398,15 @@ winning strategy.
 
 To loop a specific number of times with Python's `for` loops, you can use a `range` call to get a
 list with the number of elements you want.
+
+### Step 13
+
+To make this transparent, it should visualize an entire game, starting with stringifying the `Game`
+object.
+
+In my [thirteenth commit](https://github.com/dankuck/dan-learns-python/commit/bd4ca0a9adb96438b960920cf0474f6697d9a0ea),
+I combined the existing stringifiers to create a `toString` method on `Game`.
+
+#### What did I learn in Step 13?
+
+If there's a standard way to stringify objects in Python, it's not obvious on Google.
