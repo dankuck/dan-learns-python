@@ -352,8 +352,23 @@ When importing you can change an identifier using the `as` keyword. Example:
 
 ### Step 9
 
-In my [ninth commit](https://github.com/dankuck/dan-learns-python/commit/af5ad7b51700e3f32f22e6b22b58700a89518d7d) I did something very similar, but for wind.
+In my [ninth commit](https://github.com/dankuck/dan-learns-python/commit/af5ad7b51700e3f32f22e6b22b58700a89518d7d)
+I did something very similar, but for wind.
 
 #### What did I learn in Step 9?
 
 The negation operator in Python is `not`.
+
+### Step 10
+
+Wind strategies could return invalid moves, just like dandelion strategies could. So it's time to
+make `blow` push back with exceptions like `plant` does.
+
+In my [tenth commit](https://github.com/dankuck/dan-learns-python/commit/6a9ceb95732449e0124bb77b8fad9c382fc17f93)
+I add a `compass` parameter to `blow`.
+
+#### What did I learn in Step 10?
+
+A set is a third array-like structure which has just one of each item type. I used it to store the
+valid directions because I suspect it's more efficient than an array or tuple.
+
