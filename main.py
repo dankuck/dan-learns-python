@@ -1,47 +1,14 @@
-from to_string import board_to_string, compass_to_string
+from wind import blow, FixedStrategy as WindFixedStrategy
+from dandelion import plant, FixedStrategy as DandelionFixedStrategy
+from game import Game
 
 print("DANDELIONS")
 
-board = [
-    [' ', ' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' ', ' '],
-    [' ', ' ', ' ', ' ', ' ']
-]
-
-compass = {
-    'no': False,
-    'ne': False,
-    'ea': False,
-    'se': False,
-    'so': False,
-    'sw': False,
-    'we': False,
-    'nw': False,
-}
-
-print(board_to_string(board))
-print(compass_to_string(compass))
-
-board = [
-    ['*', '*', '*', '*', '*'],
-    ['*', '*', '*', '*', '*'],
-    ['*', '*', '*', '*', '*'],
-    ['*', '*', '*', '*', '*'],
-    ['*', '*', '*', '*', '*']
-]
-
-compass = {
-    'no': True,
-    'ne': True,
-    'ea': True,
-    'se': True,
-    'so': True,
-    'sw': True,
-    'we': True,
-    'nw': True,
-}
-
-print(board_to_string(board))
-print(compass_to_string(compass))
+dandelion = DandelionFixedStrategy()
+wind = WindFixedStrategy()
+game = Game(dandelion, wind)
+print(game.toString())
+while (not game.done()):
+    game.step()
+    print(game.toString())
+print("Wind wins" if game.winner() == wind else "Dandelion wins")
