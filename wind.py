@@ -9,7 +9,9 @@ def blow(board, compass, direction):
         for ci, cell in enumerate(row):
             if (cell == '*'):
                 blow_cell(board, ri, ci, direction)
-    return board
+    compass = deepcopy(compass)
+    compass[direction] = True
+    return board, compass
 
 def directionError(compass, direction):
     valid = {'no', 'ne', 'ea', 'se', 'so', 'sw', 'we', 'nw'}

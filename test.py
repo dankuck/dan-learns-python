@@ -100,7 +100,7 @@ def it_blows_seeds_north():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'no');
+    after_board, after_compass = blow(board, compass, 'no');
     expected = [
         [' ', '.', ' ', ' ', ' '],
         [' ', '.', ' ', ' ', ' '],
@@ -108,7 +108,7 @@ def it_blows_seeds_north():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_south():
     board = [
@@ -128,7 +128,7 @@ def it_blows_seeds_south():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'so');
+    after_board, after_compass = blow(board, compass, 'so');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -136,7 +136,7 @@ def it_blows_seeds_south():
         [' ', '*', ' ', ' ', ' '],
         [' ', '.', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_east():
     board = [
@@ -156,7 +156,7 @@ def it_blows_seeds_east():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'ea');
+    after_board, after_compass = blow(board, compass, 'ea');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -164,7 +164,7 @@ def it_blows_seeds_east():
         [' ', '*', '.', '.', '.'],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_west():
     board = [
@@ -184,7 +184,7 @@ def it_blows_seeds_west():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'we');
+    after_board, after_compass = blow(board, compass, 'we');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -192,7 +192,7 @@ def it_blows_seeds_west():
         ['.', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_northeast():
     board = [
@@ -212,7 +212,7 @@ def it_blows_seeds_northeast():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'ne');
+    after_board, after_compass = blow(board, compass, 'ne');
     expected = [
         [' ', ' ', ' ', ' ', '.'],
         [' ', ' ', ' ', '.', ' '],
@@ -220,7 +220,7 @@ def it_blows_seeds_northeast():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_southeast():
     board = [
@@ -240,7 +240,7 @@ def it_blows_seeds_southeast():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'se');
+    after_board, after_compass = blow(board, compass, 'se');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -248,7 +248,7 @@ def it_blows_seeds_southeast():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', '.', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_southwest():
     board = [
@@ -268,7 +268,7 @@ def it_blows_seeds_southwest():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'sw');
+    after_board, after_compass = blow(board, compass, 'sw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -276,7 +276,7 @@ def it_blows_seeds_southwest():
         [' ', '*', ' ', ' ', ' '],
         ['.', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def it_blows_seeds_northwest():
     board = [
@@ -296,7 +296,7 @@ def it_blows_seeds_northwest():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'nw');
+    after_board, after_compass = blow(board, compass, 'nw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -304,7 +304,7 @@ def it_blows_seeds_northwest():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected);
+    assert(after_board == expected);
 
 def blow_works_correctly_at_the_borders():
     '''
@@ -329,7 +329,7 @@ def blow_works_correctly_at_the_borders():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'no');
+    after_board, after_compass = blow(board, compass, 'no');
     expected = [
         ['.', ' ', ' ', ' ', ' '],
         ['.', ' ', ' ', ' ', ' '],
@@ -337,7 +337,7 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
     board = [
         [' ', ' ', '*', ' ', ' '],
@@ -356,7 +356,7 @@ def blow_works_correctly_at_the_borders():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'ea');
+    after_board, after_compass = blow(board, compass, 'ea');
     expected = [
         [' ', ' ', '*', '.', '.'],
         [' ', ' ', ' ', ' ', ' '],
@@ -364,7 +364,7 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
     board = [
         [' ', ' ', ' ', ' ', ' '],
@@ -383,7 +383,7 @@ def blow_works_correctly_at_the_borders():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'so');
+    after_board, after_compass = blow(board, compass, 'so');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -391,7 +391,7 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', '.'],
         [' ', ' ', ' ', ' ', '.']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
     board = [
         [' ', ' ', ' ', ' ', ' '],
@@ -410,7 +410,7 @@ def blow_works_correctly_at_the_borders():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'we');
+    after_board, after_compass = blow(board, compass, 'we');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -418,7 +418,7 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         ['.', '.', '*', ' ', ' ']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
 def blow_works_with_multiple_dandelions():
     board = [
@@ -438,7 +438,7 @@ def blow_works_with_multiple_dandelions():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'se');
+    after_board, after_compass = blow(board, compass, 'se');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -446,7 +446,7 @@ def blow_works_with_multiple_dandelions():
         [' ', '*', ' ', '.', ' '],
         [' ', ' ', '.', ' ', '.']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
 def blow_doesnt_destroy_other_dandelions_with_new_seeds():
     board = [
@@ -466,7 +466,7 @@ def blow_doesnt_destroy_other_dandelions_with_new_seeds():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'sw');
+    after_board, after_compass = blow(board, compass, 'sw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -474,9 +474,9 @@ def blow_doesnt_destroy_other_dandelions_with_new_seeds():
         [' ', '*', ' ', ' ', ' '],
         ['.', ' ', ' ', ' ', ' ']
     ]
-    assert(after == expected)
+    assert(after_board == expected)
 
-def blow_returns_a_new_board():
+def blow_returns_a_new_board_and_compass():
     board = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -494,9 +494,10 @@ def blow_returns_a_new_board():
         'we': False,
         'nw': False,
     }
-    after = blow(board, compass, 'no')
-    after[0][0] = '*' # mess with the new board but not the old one
-    assert(board != after)
+    after_board, after_compass = blow(board, compass, 'no')
+    after_board[0][0] = '*' # mess with the new board but not the old one
+    assert(board != after_board)
+    assert(compass != after_compass)
 
 def plant_plants_a_dandelion():
     board = [
@@ -703,7 +704,6 @@ def blow_rejects_used_directions():
         return # good, we expected an exception
     assert(False)
 
-
 tested = [
     it_prints_a_blank_board(),
     it_prints_a_full_board(),
@@ -720,7 +720,7 @@ tested = [
     blow_works_correctly_at_the_borders(),
     blow_works_with_multiple_dandelions(),
     blow_doesnt_destroy_other_dandelions_with_new_seeds(),
-    blow_returns_a_new_board(),
+    blow_returns_a_new_board_and_compass(),
     plant_plants_a_dandelion(),
     plant_cannot_plant_where_a_dandelion_already_exists(),
     plant_returns_a_new_board(),
