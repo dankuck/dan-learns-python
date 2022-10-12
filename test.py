@@ -90,7 +90,17 @@ def it_blows_seeds_north():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'no');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'no');
     expected = [
         [' ', '.', ' ', ' ', ' '],
         [' ', '.', ' ', ' ', ' '],
@@ -108,7 +118,17 @@ def it_blows_seeds_south():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'so');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'so');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -126,7 +146,17 @@ def it_blows_seeds_east():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'ea');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'ea');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -144,7 +174,17 @@ def it_blows_seeds_west():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'we');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'we');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -162,7 +202,17 @@ def it_blows_seeds_northeast():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'ne');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'ne');
     expected = [
         [' ', ' ', ' ', ' ', '.'],
         [' ', ' ', ' ', '.', ' '],
@@ -180,7 +230,17 @@ def it_blows_seeds_southeast():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'se');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'se');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -198,7 +258,17 @@ def it_blows_seeds_southwest():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'sw');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'sw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -216,7 +286,17 @@ def it_blows_seeds_northwest():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'nw');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'nw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -239,7 +319,17 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'no');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'no');
     expected = [
         ['.', ' ', ' ', ' ', ' '],
         ['.', ' ', ' ', ' ', ' '],
@@ -256,7 +346,17 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'ea');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'ea');
     expected = [
         [' ', ' ', '*', '.', '.'],
         [' ', ' ', ' ', ' ', ' '],
@@ -273,7 +373,17 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'so');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'so');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -290,7 +400,17 @@ def blow_works_correctly_at_the_borders():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', '*', ' ', ' ']
     ]
-    after = blow(board, 'we');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'we');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -308,7 +428,17 @@ def blow_works_with_multiple_dandelions():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'se');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'se');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -326,7 +456,17 @@ def blow_doesnt_destroy_other_dandelions_with_new_seeds():
         [' ', '*', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'sw');
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'sw');
     expected = [
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' '],
@@ -344,7 +484,17 @@ def blow_returns_a_new_board():
         [' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ']
     ]
-    after = blow(board, 'no')
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    after = blow(board, compass, 'no')
     after[0][0] = '*' # mess with the new board but not the old one
     assert(board != after)
 
@@ -505,6 +655,54 @@ def fixed_wind_strategy_gives_seven_different_moves():
     assert(not compass[move])
     compass[move] = True
 
+def blow_rejects_bad_directions():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    compass = {
+        'no': False,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    try:
+        blow(board, compass, 'north-by-south')
+    except BaseException:
+        return # good, we expected an exception
+    assert(False)
+
+def blow_rejects_used_directions():
+    board = [
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ']
+    ]
+    compass = {
+        'no': True,
+        'ne': False,
+        'ea': False,
+        'se': False,
+        'so': False,
+        'sw': False,
+        'we': False,
+        'nw': False,
+    }
+    try:
+        blow(board, compass, 'no')
+    except BaseException:
+        return # good, we expected an exception
+    assert(False)
+
 
 tested = [
     it_prints_a_blank_board(),
@@ -529,6 +727,8 @@ tested = [
     plant_cannot_plant_outside_the_boundary(),
     fixed_dandelion_strategy_gives_seven_different_moves(),
     fixed_wind_strategy_gives_seven_different_moves(),
+    blow_rejects_bad_directions(),
+    blow_rejects_used_directions(),
 ]
 
 print('Tested:', len(tested))

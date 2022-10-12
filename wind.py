@@ -1,12 +1,23 @@
 from copy import deepcopy
 
-def blow(board, direction):
+def blow(board, compass, direction):
+    error = directionError(compass, direction)
+    if (error):
+        raise error
     board = deepcopy(board)
     for ri, row in enumerate(board):
         for ci, cell in enumerate(row):
             if (cell == '*'):
                 blow_cell(board, ri, ci, direction)
     return board
+
+def directionError(compass, direction):
+    valid = {'no', 'ne', 'ea', 'se', 'so', 'sw', 'we', 'nw'}
+    if (not (direction in valid)):
+        return RuntimeError('Invalid direction')
+    if (compass[direction]):
+        return RuntimeError('Direction already used')
+    return None
 
 def blow_cell(board, ri, ci, direction):
     if (direction == 'no' or direction == 'ne' or direction == 'nw'):
