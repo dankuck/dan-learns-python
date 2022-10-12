@@ -712,6 +712,26 @@ def it_plays_a_game():
     winner = game.play()
     assert(winner in {dandelion, wind})
 
+def it_stringifies_a_game():
+    expected = " - - - - - \n" \
+               "|         |\n" \
+               " - - - - - \n" \
+               "|         |\n" \
+               " - - - - - \n" \
+               "|         |\n" \
+               " - - - - - \n" \
+               "|         |\n" \
+               " - - - - - \n" \
+               "|         |\n" \
+               " - - - - - \n" \
+               "   \n" \
+               " + \n" \
+               "   "
+    dandelion = DandelionFixedStrategy()
+    wind = WindFixedStrategy()
+    game = Game(dandelion, wind)
+    assert(game.toString() == expected)
+
 
 tested = [
     it_prints_a_blank_board(),
@@ -739,6 +759,7 @@ tested = [
     blow_rejects_bad_directions(),
     blow_rejects_used_directions(),
     it_plays_a_game(),
+    it_stringifies_a_game(),
 ]
 
 print('Tested:', len(tested))

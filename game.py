@@ -1,5 +1,6 @@
 from dandelion import plant
 from wind import blow
+from to_string import compass_to_string, board_to_string
 
 def boardIsFull(board):
     for row in board:
@@ -44,3 +45,6 @@ class Game:
             if (boardIsFull(self.board)):
                 return self.dandelion
         return self.wind
+
+    def toString(self):
+        return board_to_string(self.board) + "\n" + compass_to_string(self.compass)
