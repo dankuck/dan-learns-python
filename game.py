@@ -30,21 +30,38 @@ class Game:
             'we': False,
             'nw': False,
         }
+        self.stepI = 0
 
     def play(self):
-        for step in range(1, 7):
+        while (not self.done()):
+            self.step()
+        return self.winner()
+
+    def step(self):
+        if (self.done()):
+            raise RuntimeError('Game is already done')
+        if (self.stepI % 2 == 0):
             self.board = plant(
                 self.board,
                 self.dandelion.generateMove(self.board, self.compass)
             )
+        else:
             self.board, self.compass = blow(
                 self.board,
                 self.compass,
                 self.wind.generateMove(self.board, self.compass)
             )
-            if (boardIsFull(self.board)):
-                return self.dandelion
-        return self.wind
+        self.stepI += 1
+
+    def done(self):
+        return self.winner() != None
+
+    def winner(self):
+        if (boardIsFull(self.board)):
+            return self.dandelion
+        if (self.stepI == 14):
+            return self.wind
+        return None
 
     def toString(self):
         return board_to_string(self.board) + "\n" + compass_to_string(self.compass)

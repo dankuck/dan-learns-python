@@ -732,6 +732,26 @@ def it_stringifies_a_game():
     game = Game(dandelion, wind)
     assert(game.toString() == expected)
 
+def it_steps_through_a_game():
+    dandelion = DandelionFixedStrategy()
+    wind = WindFixedStrategy()
+    game = Game(dandelion, wind)
+    game.step()
+    assert(not game.done())
+    game.step()
+    # play() probably already proves that the rest works
+
+def it_gets_upset_if_you_keep_steppin_when_its_done():
+    dandelion = DandelionFixedStrategy()
+    wind = WindFixedStrategy()
+    game = Game(dandelion, wind)
+    game.stepI = 14 #hack!
+    try:
+        game.step()
+    except BaseException:
+        return # good, it got upset
+    assert(False)
+
 
 tested = [
     it_prints_a_blank_board(),
@@ -760,6 +780,8 @@ tested = [
     blow_rejects_used_directions(),
     it_plays_a_game(),
     it_stringifies_a_game(),
+    it_steps_through_a_game(),
+    it_gets_upset_if_you_keep_steppin_when_its_done(),
 ]
 
 print('Tested:', len(tested))
