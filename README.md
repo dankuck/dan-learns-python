@@ -410,3 +410,18 @@ I combined the existing stringifiers to create a `toString` method on `Game`.
 #### What did I learn in Step 13?
 
 If there's a standard way to stringify objects in Python, it's not obvious on Google.
+
+### Step 14
+
+The other part of visualizing an entire game is to step through the game, showing each step along
+the way.
+
+In my [fourteenth commit](https://github.com/dankuck/dan-learns-python/commit/bfc9a19a42238a72e9aed6290ad09496497b8b11),
+I reworked the Game to use a `step` method as well as `done` and `winner`.
+
+#### What did I learn in Step 14?
+
+My most common mistake is to fail to put a `:` after flow control lines.
+
+`range` from before actually didn't work like I expected. It gave me 6 elements when I expected 7.
+But it was naturally removed by the introduction of `step`.
