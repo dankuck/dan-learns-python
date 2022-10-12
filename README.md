@@ -372,3 +372,16 @@ I add a `compass` parameter to `blow`.
 A set is a third array-like structure which has just one of each item type. I used it to store the
 valid directions because I suspect it's more efficient than an array or tuple.
 
+### Step 11
+
+For symmetry, `blow` should return a new mutated `compass`, like `blow` and `plant` do with `board`.
+
+In my [eleventh commit](https://github.com/dankuck/dan-learns-python/commit/f6e59c9fab324b3177ebfc0ad590b9a043add5e3),
+I altered the return signature of `blow`.
+
+#### What did I learn in Step 11?
+
+When I had written tests that expected to unpack the results of `wind` but hadn't yet changed
+`wind` to return packed results, Python attempted to unpack the board list that `wind` was already
+coded to return. Board lists have 5 elements but I wrote the new code to unpack only 2 unpacking
+values. In cases like this Python raises an exception about receiving too many values.
